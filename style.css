@@ -1,0 +1,141 @@
+:root{
+  --bg: #f5dfbc;
+  --card: #fff2d5;
+  --text:  #3a3458;
+  --accent: #fbcf82;
+
+
+}
+
+body.dark{
+  --bg: #1e1b2e;
+  --card: #2a2640;
+  --text: #fff2d5;
+  --accent: #cfd4ff;
+
+}
+
+body{
+  position: relative;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+ 
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index:-1;
+  pointer-events: none;
+  opacity: 0.4;
+   background-repeat: repeat-x;
+  background-position: top;
+   filter: blur(2px);
+}
+body:not(.dark)::before {
+  background-image: url("Images/cloud.png"); 
+  background-size: 500px; 
+
+  opacity: 0.6;
+}
+body.dark::before {
+ background-image: url("Images/stars.png");
+  background-size: 500px; 
+  opacity:0.5;
+}
+
+@keyframes cloudsMove {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200px);
+  }
+}
+#head{
+   margin: 20px auto; 
+  width: 800px;
+  text-align: center;
+  font-size: 25px;
+  background-color: var(--card);
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ box-shadow: 0 0 10px var(--accent),
+               0 0 20px var(--accent),
+               0 0 40px var(--accent);
+}
+button {
+  background-color: var(--card);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+   box-shadow: 0 0 10px var(--accent),
+               0 0 20px var(--accent),
+               0 0 40px var(--accent);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  align-items: flex-start;
+   
+  
+}
+
+video {
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+#playerbox{
+  background-color: var(--card);
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  box-shadow: 0 0 10px var(--accent),
+               0 0 20px var(--accent),
+               0 0 40px var(--accent);
+  
+}
+
+.videolist {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  gap: 20px;
+  margin-top: 20px;
+  height: 400px;
+   overflow-y: auto;   
+   box-shadow: 0 0 10px var(--accent),
+               0 0 20px var(--accent),
+               0 0 40px var(--accent);
+  
+}
+
+.videolist::-webkit-scrollbar {
+  width: 8px; 
+  
+}
+.videolist::-webkit-scrollbar-thumb {
+  background: var(--text);
+  border-radius: 5px;
+    min-height: 30px;
+}
+
+.videoitem {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.videoitem:hover {
+  transform: translateY(-10%);
+}
+.videoitem.active {
+  border: 2px solid var(--accent);
+}
