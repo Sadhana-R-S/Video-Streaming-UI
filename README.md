@@ -14,6 +14,6 @@ Day and Night themes Video streaming FrontEnd that focus on smooth user experien
 
 🛠️ Tech Stack
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-HTML
-CSS
-JavaScript
+>HTML
+>CSS
+>JS
